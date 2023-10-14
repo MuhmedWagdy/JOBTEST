@@ -1,5 +1,5 @@
 from django.db import models
-# from django.contrib.auth.models import User
+from django.contrib.auth.models import User
 from django.utils import timezone
 from django.core.exceptions import ValidationError
 
@@ -46,7 +46,7 @@ class job_catogery(models.Model):
 class Job_Detail(models.Model):
     class Meta:
         verbose_name_plural = 'Job_Detail' 
-
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
     job_name = models.CharField(max_length=100,choices=name_jobs)
     catogory_job = models.ForeignKey(job_catogery, on_delete=models.CASCADE)
     place = models.CharField(max_length=200)
