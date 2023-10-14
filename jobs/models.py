@@ -49,15 +49,18 @@ class Job_Detail(models.Model):
     place = models.CharField(max_length=200)
     def Check_Salary(salary):
         if salary not in range(3500,4000):        
-           raise ValidationError("Salary Must Between in range(3500-4000)")
-        
+           raise ValidationError("Salary Must Between in range(3500-4000)")    
         else:
             return(" must Choose correct salary")
         
-
     salary = models.FloatField(max_length=10,validators=[Check_Salary])
     product_catogery = models.CharField(max_length=100,choices=Category_type)
-    time_puplish = models.DateTimeField(null=True,blank=True)
+    start_apply_job = models.DateTimeField(null=True,blank=True)
+    end_apply_job =  models.DateTimeField(null=True,blank=True)
+
+    
+    descripation = models.TextField(max_length=1000)
+    
     def __str__(self) -> str:
         return str(self.user)
 
