@@ -1,26 +1,30 @@
-
-== logo
-==> job name
-== catagory job 
+job_deatil 
+== user
+== job_name
 ==> place
-==range salary
-== time job
-
-
-
+== catagory job 
+==> salay
+==check_salary
+== time_puplish 
 
 ----------------------------------------------------------
 
-job_catogory 
-
-
+--job_catogory 
 --job_type 
 -- job_location 
-
-
--- posted - within 
+-- experience
+-- posted_within
 
 
 
 --------------------------------------------------------------------
+
+class info_company
+
+
+-- name 
+--logo
+--email
+--website-
+-- mobile 
 

@@ -9,20 +9,17 @@ job_type = (
     ('Part Time','Part Time'),
     ('Remote','Remote'), 
     ('Freelance','Freelance'),
-
 )
-
 name_jobs = (
     ('python devoloper','python devoloper'),  
     ('Digtal Marketer','Digtal Marketer'),
     ('Database Administrator','Database Administrator'), 
     ('Odoo Devoloper','Odoo devoloper'),
-
 )
 
 Category_type = (
 
-    ('Marketing','Marketing'),  
+    ('Creative Agency','Creative Agency'),  
     ('Programming','Programming'),
     ('Sales Erp','Sales Erp'), 
     ('Pos Hardware','Pos Hardware'),
@@ -51,13 +48,18 @@ class Job_Detail(models.Model):
     catogory_job = models.ForeignKey(job_catogery, on_delete=models.CASCADE)
     place = models.CharField(max_length=200)
     def Check_Salary(salary):
-        if salary  not in range(3500,4000):        
-           raise ValidationError("Salary Must Between in range(3500-4000) ")
-    salary = models.FloatField(validators=[Check_Salary])
+        if salary not in range(3500,4000):        
+           raise ValidationError("Salary Must Between in range(3500-4000)")
+        
+        else:
+            return(" must Choose correct salary")
+        
+
+    salary = models.FloatField(max_length=10,validators=[Check_Salary])
     product_catogery = models.CharField(max_length=100,choices=Category_type)
     time_puplish = models.DateTimeField(null=True,blank=True)
     def __str__(self) -> str:
-        return self.job_name
+        return str(self.user)
 
 
 
