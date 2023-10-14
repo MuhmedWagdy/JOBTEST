@@ -18,8 +18,6 @@ name_jobs = (
     ('Database Administrator','Database Administrator'), 
     ('Odoo Devoloper','Odoo devoloper'),
 
-
-
 )
 
 class job_catogery(models.Model):
@@ -33,20 +31,47 @@ class job_catogery(models.Model):
     posted_within = models.DateTimeField(default=timezone)
 
 
+    def __str__(self) -> str:
+        return self.job_type
+
+
 
 class Job_Detail(models.Model):
 
-    logo = models.ImageField(upload_to="image_logo")
-
     job_name = models.CharField(max_length=100,choices=name_jobs)
-
     catogory_job = models.ForeignKey(job_catogery, on_delete=models.CASCADE)
-
     place = models.CharField(max_length=200)
-
     salary = models.FloatField(range(3500,4000))
-
     time_puplish = models.DateTimeField(null=True,blank=True)
+
+    
+
+    def __str__(self) -> str:
+        return self.job_name
+
+
+
+
+
+
+
+
+class Info_employee(models.Model):
+    name = models.EmailField(max_length=200)
+    logo = models.ImageField(upload_to='ImageLogo',height_field=None, width_field=None, max_length=None)
+    mobile =models.CharField( max_length=50)
+    comany_name = models.CharField(max_length=50)
+
+
+
+    def __str__(self):
+        return self.name
+
+
+
+
+
+    
 
 
 
