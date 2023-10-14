@@ -2,6 +2,10 @@ from django.db import models
 # from django.contrib.auth.models import User
 from django.utils import timezone
 
+from django.core.exceptions import ValidationError
+
+
+
 # Create your models here.
 
 job_type = (
@@ -28,10 +32,20 @@ class job_catogery(models.Model):
     job_type = models.CharField(max_length=200,choices=job_type)
 
     job_location = models.CharField(max_length=200)
+    
+    def non_negative_validator(experience):
+        if experience <=0:
+           raise ValidationError("Value must be Choose At least One Or More experience")
 
-    experience = models.IntegerField()
+    experience = models.IntegerField(validators=[non_negative_validator])
 
     posted_within = models.DateTimeField(default=timezone.now)
+
+
+
+
+
+
 
 
     def __str__(self) -> str:
