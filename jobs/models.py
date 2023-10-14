@@ -12,6 +12,16 @@ job_type = (
 
 )
 
+name_jobs = (
+    ('python devoloper','python devoloper'),  
+    ('Digtal Marketer','Digtal Marketer'),
+    ('Database Administrator','Database Administrator'), 
+    ('Odoo Devoloper','Odoo devoloper'),
+
+
+
+)
+
 class job_catogery(models.Model):
 
     job_type = models.CharField(max_length=200,choices=job_type)
@@ -28,7 +38,7 @@ class Job_Detail(models.Model):
 
     logo = models.ImageField(upload_to="image_logo")
 
-    job_name = models.CharField(max_length=100)
+    job_name = models.CharField(max_length=100,choices=name_jobs)
 
     catogory_job = models.ForeignKey(job_catogery, on_delete=models.CASCADE)
 
