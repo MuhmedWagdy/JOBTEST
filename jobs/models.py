@@ -28,7 +28,7 @@ class job_catogery(models.Model):
 
     experience = models.IntegerField()
 
-    posted_within = models.DateTimeField(default=timezone)
+    posted_within = models.DateTimeField(default=timezone.now)
 
 
     def __str__(self) -> str:
@@ -44,14 +44,10 @@ class Job_Detail(models.Model):
     salary = models.FloatField(range(3500,4000))
     time_puplish = models.DateTimeField(null=True,blank=True)
 
-    
+
 
     def __str__(self) -> str:
         return self.job_name
-
-
-
-
 
 
 
