@@ -22,6 +22,9 @@ name_jobs = (
 
 class job_catogery(models.Model):
 
+    class Meta:
+        verbose_name_plural = 'job_catogery' 
+
     job_type = models.CharField(max_length=200,choices=job_type)
 
     job_location = models.CharField(max_length=200)
@@ -38,6 +41,9 @@ class job_catogery(models.Model):
 
 class Job_Detail(models.Model):
 
+    class Meta:
+        verbose_name_plural = 'Job_Detail' 
+
     job_name = models.CharField(max_length=100,choices=name_jobs)
     catogory_job = models.ForeignKey(job_catogery, on_delete=models.CASCADE)
     place = models.CharField(max_length=200)
@@ -52,7 +58,11 @@ class Job_Detail(models.Model):
 
 
 
-class Info_employee(models.Model):
+class Info_Employee(models.Model):
+    class Meta:
+        verbose_name_plural = 'Info_Employee' 
+
+    
     name = models.EmailField(max_length=200)
     logo = models.ImageField(upload_to='ImageLogo',height_field=None, width_field=None, max_length=None)
     mobile =models.CharField( max_length=50)
