@@ -41,16 +41,8 @@ class job_catogery(models.Model):
 
     posted_within = models.DateTimeField(default=timezone.now)
 
-
-
-
-
-
-
-
     def __str__(self) -> str:
         return self.job_type
-
 
 
 class Job_Detail(models.Model):
@@ -61,10 +53,16 @@ class Job_Detail(models.Model):
     job_name = models.CharField(max_length=100,choices=name_jobs)
     catogory_job = models.ForeignKey(job_catogery, on_delete=models.CASCADE)
     place = models.CharField(max_length=200)
-    salary = models.FloatField(range(3500,4000))
+   
+
+    def Check_Salary(salary):
+        if salary  not in range(3500,4000):
+           
+           raise ValidationError("Salary Must Between in range(3500-4000) ")
+    salary = models.FloatField(validators=[Check_Salary])
+
+
     time_puplish = models.DateTimeField(null=True,blank=True)
-
-
 
     def __str__(self) -> str:
         return self.job_name
