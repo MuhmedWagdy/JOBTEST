@@ -58,9 +58,9 @@ class Job_Detail(models.Model):
 
 
 
-class Info_Employee(models.Model):
+class Info_Company(models.Model):
     class Meta:
-        verbose_name_plural = 'Info_Employee' 
+        verbose_name_plural = 'Info_Company' 
 
     
     name = models.EmailField(max_length=200)
