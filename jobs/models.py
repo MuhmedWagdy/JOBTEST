@@ -54,10 +54,7 @@ class Job_Detail(models.Model):
         if salary  not in range(3500,4000):        
            raise ValidationError("Salary Must Between in range(3500-4000) ")
     salary = models.FloatField(validators=[Check_Salary])
-
     product_catogery = models.CharField(max_length=100,choices=Category_type)
-
-
     time_puplish = models.DateTimeField(null=True,blank=True)
     def __str__(self) -> str:
         return self.job_name
@@ -71,6 +68,7 @@ class Info_Company(models.Model):
     name = models.EmailField(max_length=200)
     logo = models.ImageField(upload_to='ImageLogo',height_field=None, width_field=None, max_length=None)
     mobile =models.CharField( max_length=50)
+    website_name = models.URLField(null=True,blank=True)
     comany_name = models.CharField(max_length=50)
 
     def __str__(self):
